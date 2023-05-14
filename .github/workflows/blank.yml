@@ -1,21 +1,19 @@
-name: ci
+name: Run Simple Code
 
 on:
   push:
     branches:
-      - "main"
+      - main
 
 jobs:
-  build:
+  run-code:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: abhinachu23/clockbox:latest
+      - name: Run Simple Code
+        run: |
+          echo "Hello, World!"
+          # Add your code here
